@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Validator;
+use App\Models\Eloquent;
 
 class Business extends Model
 {
@@ -12,3 +14,4 @@ class Business extends Model
     protected $fillable =['id','name', 'user_id'];
     public $timetamps = false;
 }
+

@@ -12,15 +12,15 @@ class ProductController extends Controller
     {
         $product = Product::create([
             'id' =>$request->id, 
-            'name' =>$request->name,
-            'descripcion'=>$request->descripcion,
-            'cantidad'=>$request->cantidad,
-            'precio'=>$request->precio,
-            'descuento'=>$request->descuento,
-            'impuesto'=>$request->impuesto,
-            'total'=>$request->total,
-            'created_at' =>$request->created_at,
-            'updated_at' =>$request->updated_at
+            'name' =>$request->name, ['required'],
+            'descripcion'=>$request->descripcion, ['required'],
+            'cantidad'=>$request->cantidad, ['required'],
+            'precio'=>$request->precio, ['required'],
+            'descuento'=>$request->descuento, ['required'],
+            'impuesto'=>$request->impuesto, ['required'],
+            'total'=>$request->total, ['required'],
+            'created_at' =>$request->created_at, 
+            'updated_at' =>$request->updated_at 
         ]);
         return $product;
     }

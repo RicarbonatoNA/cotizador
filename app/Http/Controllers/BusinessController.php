@@ -12,10 +12,10 @@ class BusinessController extends Controller
     {
         $business = Business::create([
             'id' =>$request->id, 
-            'name' =>$request->name,
-            'user_id'=>$request->user_id,
+            'name' =>$request->name, ['required'],
+            'user_id'=>$request->user_id, ['required'],
             'created_at' =>$request->created_at,
-            'updated_at' =>$request->updated_at
+            'updated_at' =>$request->updated_at,
         ]);
         return $business;
     }

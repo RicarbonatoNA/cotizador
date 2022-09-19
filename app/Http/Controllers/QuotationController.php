@@ -11,16 +11,16 @@ class QuotationController extends Controller
     {
         $quotation = Quotation::create([
             'id' =>$request->id, 
-            'business_id' =>$request->business_id,
-            'referencia'=>$request->referencia,
-            'totales_impuesto'=>$request->totales_impuesto,
-            'fecha'=>$request->fecha,
-            'resumen_cotizacion'=>$request->resumen_cotizacion,
-            'divisa'=>$request->divisa,
-            'sucursal'=>$request->sucursal,
-            'product_id'=>$request->product_id,
-            'total_producto'=>$request->total_producto,
-            'created_at' =>$request->created_at,
+            'business_id' =>$request->business_id, ['required'],
+            'referencia'=>$request->referencia, ['required'],
+            'totales_impuesto'=>$request->totales_impuesto, ['required'],
+            'fecha'=>$request->fecha, ['required'],
+            'resumen_cotizacion'=>$request->resumen_cotizacion, ['required'],
+            'divisa'=>$request->divisa, ['required'],
+            'sucursal'=>$request->sucursal, ['required'],
+            'product_id'=>$request->product_id, ['required'],
+            'total_producto'=>$request->total_producto, ['required'],
+            'created_at' =>$request->created_at, 
             'updated_at' =>$request->updated_at
         ]);
         return $quotation;
