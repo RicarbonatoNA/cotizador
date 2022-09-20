@@ -97,4 +97,15 @@ class AuthController extends Controller
             'user' => auth()->user()
         ]);
     }
+
+    public function Delete($id){
+        $user = User::find($id); 
+        $user->delete();
+        return $user;
+    }
+
+    public function Read(){
+        $user = User::all();
+        return $user;
+    }
 }
