@@ -29,6 +29,8 @@ Route::group([
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
+    Route::get('/users', [AuthController::class, 'Read']);
+    Route::delete('/DeleteUser/{id}', [AuthController::class, 'Delete']); 
 
     Route::group(['prefix' => 'roles'], function(){
         Route::post('/CreateRoles',[RolesController::class, 'Create']);
