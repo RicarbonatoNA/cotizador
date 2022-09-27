@@ -16,9 +16,14 @@ return new class extends Migration
         Schema::create('business', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->timestamps();
+            $table->string('identificador_fiscal');
+            $table->string('direccion_facturacion');
+            $table->string('telefono');
+            $table->string('logo');
+            $table->string('notas');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 
