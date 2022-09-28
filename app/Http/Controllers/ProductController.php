@@ -13,12 +13,18 @@ class ProductController extends Controller
         $product = Product::create([
             'id' =>$request->id, 
             'name' =>$request->name, ['required'],
+            'sku' =>$request->sku, ['required'],
             'descripcion'=>$request->descripcion, ['required'],
             'cantidad'=>$request->cantidad, ['required'],
-            'precio'=>$request->precio, ['required'],
-            'descuento'=>$request->descuento, ['required'],
+            'precio_compra'=>$request->precio_compra, ['required'],
+            'precio_venta'=>$request->precio_venta, ['required'],
+            'divisa'=>$request->divisa, ['required'],
             'impuesto'=>$request->impuesto, ['required'],
-            'total'=>$request->total, ['required'],
+            'unidad'=>$request->unidad, ['required'],
+            'marca'=>$request->marca, ['required'],
+            'imagen'=>$request->imagen, ['required'],
+            'notas'=>$request->notas, ['required'],
+            'business_id'=>$request->business_id, ['required'],
             'created_at' =>$request->created_at, 
             'updated_at' =>$request->updated_at 
         ]);
@@ -33,12 +39,17 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->name=$request->name;
+        $product->sku=$request->sku;
         $product->descripcion=$request->descripcion;
         $product->cantidad=$request->cantidad;
-        $product->precio=$request->precio;
-        $product->descuento=$request->descuento;
+        $product->precio_compra=$request->precio_compra;
+        $product->precio_venta=$request->precio_venta;
+        $product->divisa=$request->divisa;
         $product->impuesto=$request->impuesto;
-        $product->total=$request->total;
+        $product->unidad=$request->unidad;
+        $product->marca=$request->marca;
+        $product->imagen=$request->imagen;
+        $product->notas=$request->notas;
         $product->save();
         return $product;
     }
