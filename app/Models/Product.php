@@ -9,6 +9,7 @@ class Product extends Model
 {
     use HasFactory;
     protected $table='products';
-    protected $fillable =['id','name', 'descripcion', 'cantidad', 'precio', 'descuento', 'impuesto', 'total'];
+    protected $fillable =['id','name','sku', 'descripcion', 'cantidad', 'precio_venta', 'precio_compra', 'divisa', 'impuesto', 
+    'unidad', 'marca', 'imagen', 'notas', 'business_id'];
     public $timetamps = false;
 }

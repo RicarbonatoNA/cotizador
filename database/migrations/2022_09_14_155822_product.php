@@ -16,12 +16,19 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('sku');
             $table->string('descripcion');
             $table->string('cantidad');
-            $table->string('precio');
-            $table->string('descuento');
+            $table->string('precio_compra');
+            $table->string('precio_venta');
+            $table->string('divisa');
             $table->string('impuesto');
-            $table->string('total');
+            $table->string('unidad');
+            $table->string('marca');
+            $table->string('imagen');
+            $table->string('notas');
+            $table->unsignedBigInteger('business_id');
+            $table->foreign('business_id')->references('id')->on('business');
             $table->timestamps();
         });
     }

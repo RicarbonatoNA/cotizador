@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BusinessController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\QuotationController;
 use App\Http\Controllers\RolesController;
@@ -29,6 +30,9 @@ Route::group([
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
+    Route::get('/users', [AuthController::class, 'Read']);
+    Route::delete('/DeleteUser/{id}', [AuthController::class, 'Delete']); 
+    Route::post('/UpdateUser/{id}', [AuthController::class, 'Update']); 
 
     Route::group(['prefix' => 'roles'], function(){
         Route::post('/CreateRoles',[RolesController::class, 'Create']);
@@ -56,5 +60,12 @@ Route::group([
         Route::delete('/DeleteQuotation/{id}',[QuotationController::class, 'Delete']);
         Route::post('/UpdateQuotation/{id}',[QuotationController::class, 'Update']);
         Route::get('/ReadQuotation',[QuotationController::class, 'Read']);
+    });
+
+    Route::group(['prefix' => 'client'], function(){
+        Route::post('/CreateClient',[ClientController::class, 'Create']);
+        Route::delete('/DeleteClient/{id}',[ClientController::class, 'Delete']);
+        Route::post('/UpdateClient/{id}',[ClientController::class, 'Update']);
+        Route::get('/ReadClient',[ClientController::class, 'Read']);
     });
 });

@@ -11,8 +11,8 @@ class RolesController extends Controller
     public function Create(Request $request)
     {
         $role = Role::create([
-            'id' =>$request->id, 
-            'name' =>$request->name,
+            'id' =>$request->id, ['required'],
+            'name' =>$request->name, ['required'],
             'created_at' =>$request->created_at,
             'updated_at' =>$request->updated_at
         ]);
